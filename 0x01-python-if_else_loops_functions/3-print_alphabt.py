@@ -1,5 +1,5 @@
 #!/usr/bin/python3
 
-for c in range(97,123):
-    if c not in (101,113): 
-        print(chr(c),end='')
+for alphabet in range(97, 123):
+    if chr(alphabet) is not 'e'and chr(alphabet) is not 'q': 
+        print("{}".format(chr(alphabet)),end="")

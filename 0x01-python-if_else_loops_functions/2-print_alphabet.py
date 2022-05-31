@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 
-for c in range(97,123):
-    print(chr(c),end='')
+for alphabet in range(97,123):
+    print("{}".format(chr(alphabet)), end='')
