@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-# prevent code from being executed when imported
 if __name__ == "__main__":
     import sys
 
