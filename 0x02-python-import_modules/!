@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+
+# prevent code from being executed when imported
+if __name__ == "__main__":
+    import sys
+
+    arg_count = len(sys.argv[1:])
+    arg_list = str(sys.argv[1:])
+
+    if arg_count == 0:
+        print(" 0 arguments.")
+    elif arg_count == 1:
+        print(" 1 argument:")
+        print("{}: ".format(arg_count, arg_list), end="\n")
+    else:
+        print("{} arguments".format(arg_count), end="\n")
+        for index in range(1, arg_count):
+            print("{}: {}".format(index, arg_list[index]), end="\n")
