@@ -1,74 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
-
 /**
- *  * print_listint - prints all elements of a listint_t list
- *   * @h: pointer to head of list
- *    * Return: number of nodes
- *     */
-size_t print_listint(const listint_t *h)
+ * insert_node - inserts a node
+ * @head: head
+ * @number: int to add
+ * Return: new node
+ */
+listint_t *insert_node(listint_t **head, int number)
 {
-        const listint_t *current;
-            unsigned int n; /* number of nodes */
+    listint_t *temp = NULL, *node = NULL;
 
-                current = h;
-                    n = 0;
-                        while (current != NULL)
-                                {
-                                            printf("%i\n", current->n);
-                                                    current = current->next;
-                                                            n++;
-                                                                }
+    if (head == NULL)
+        return (NULL);
 
-                            return (n);
-}
+    node = malloc(sizeof(listint_t *));
+    if (node == NULL)
+        return (NULL);
+    node->next = NULL;
+    node->n = number;
 
-/**
- *  * add_nodeint_end - adds a new node at the end of a listint_t list
- *   * @head: pointer to pointer of first node of listint_t list
- *    * @n: integer to be included in new node
- *     * Return: address of the new element or NULL if it fails
- *      */
-listint_t *add_nodeint_end(listint_t **head, const int n)
-{
-        listint_t *new;
-            listint_t *current;
+    temp = *head;
+    while (temp)
+    {
+        if (temp->n >= number)
+        {
+            node->next = temp;
+            *head = node;
+            return (node);
+        }
+        else if (temp->n <= number && temp->next->n >= number)
+        {
+            if (temp->next != NULL)
+            {
+                node->next = temp->next;
+                temp->next = node;
+                return (node);
+            }
+        }
+        temp = temp->next;
+    }
 
-                current = *head;
-
-                    new = malloc(sizeof(listint_t));
-                        if (new == NULL)
-                                    return (NULL);
-
-                            new->n = n;
-                                new->next = NULL;
-
-                                    if (*head == NULL)
-                                                *head = new;
-                                        else
-                                                {
-                                                            while (current->next != NULL)
-                                                                            current = current->next;
-                                                                    current->next = new;
-                                                                        }
-
-                                            return (new);
-}
-
-/**
- *  * free_listint - frees a listint_t list
- *   * @head: pointer to list to be freed
- *    * Return: void
- *     */
-void free_listint(listint_t *head)
-{
-        listint_t *current;
-
-            while (head != NULL)
-                    {
-                                current = head;
-                                        head = head->next;
-                                                free(current);
-                                                    }
+    return (NULL);
 }
