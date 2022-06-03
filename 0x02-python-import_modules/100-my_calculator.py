@@ -24,6 +24,3 @@ if __name__ == "__main__":
         if sys.argv[2] == '/':
             print("{} / {} = {}".format(a, b, div(a, b), end=""))
     exit(0)
-
-
-
