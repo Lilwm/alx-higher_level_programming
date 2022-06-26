@@ -1,4 +1,4 @@
-#!/sys/usr/python3
+#!/usr/bin/python3
 
 # a function that executes a function safely
 # assume fct will be always a pointer to a function
