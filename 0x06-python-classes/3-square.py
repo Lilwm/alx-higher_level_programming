@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+"""
+    class Square that defines a square
+    private instance attribute size
+    size must be an integer else raise a value error
+    if size < 0 raise value error
+"""
+class Square:
+    def __init__(self, size=0):
+        self.__size = size
+        if not isinstance(size,int):
+            raise TypeError("size must be an integer")
+        else:
+            if size < 0:
+                raise ValueError("size must be >= 0")
+    def area(self):
+        return (self.__size) **2
