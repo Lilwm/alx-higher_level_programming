@@ -5,6 +5,8 @@ class Square that defines a square
 size must be an integer else raise a value error
 if size < 0 raise value error
 """
+
+
 class Square:
      """Represents a square
     Attributes:

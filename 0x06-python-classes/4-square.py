@@ -4,6 +4,8 @@ class Square that defines a square
 size must be an integer else raise a value error
 if size < 0 raise value error
 """
+
+
 class Square:
      """Represents a square
     Attributes:
@@ -19,9 +21,9 @@ class Square:
         self.__size = size
     @property
     def size(self):
-        """
+    """
         Sets and gets the value of private size attribute
-        """
+    """
         return self.__size
     @size.setter
     def size(self, value):
@@ -33,8 +35,8 @@ class Square:
         self.__size = value
         
     def area(self):
-        """calculates the square's area
+    """calculates the square's area
         Returns:
             The area of the square
-        """
+    """
         return (self.__size) **2
