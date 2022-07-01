@@ -21,12 +21,14 @@ class Square:
         """
         self.__size = size
     @property
+
     def size(self):
         """
         Sets and gets the value of private size attribute
         """
         return self.__size
     @size.setter
+
     def size(self, value):
         """ setter of value"""
         if not isinstance(value,int):
