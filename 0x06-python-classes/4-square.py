@@ -19,15 +19,15 @@ class Square:
             None
         """
         self.__size = size
+    
     @property
-
     def size(self):
         """
         Sets and gets the value of private size attribute
         """
         return self.__size
-    @size.setter
 
+    @size.setter
     def size(self, value):
         """ setter of size"""
         if not isinstance(value, int):

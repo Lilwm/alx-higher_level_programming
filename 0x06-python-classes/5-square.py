@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 class Square that defines a square
 size must be an integer else raise a value error
@@ -20,15 +19,15 @@ class Square:
             None
         """
         self.__size = size
-    @property
 
+    @property
     def size(self):
         """
         Sets and gets the value of private size attribute
         """
         return self.__size
-    @size.setter
 
+    @size.setter
     def size(self, value):
         """ setter of value"""
         if not isinstance(value,int):
@@ -55,5 +54,3 @@ class Square:
             return
         for i in range(self.__size):
             print("".join(["#" for j in range(self.__size)]))
-~
-
