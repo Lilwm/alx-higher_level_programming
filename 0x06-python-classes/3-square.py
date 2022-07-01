@@ -7,7 +7,7 @@ if size < 0 raise value error
 
 
 class Square:
-     """Represents a square
+    """Represents a square
     Attributes:
         __size (int): size of a side of the square
     """
