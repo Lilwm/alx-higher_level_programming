@@ -28,6 +28,7 @@ class Square:
         return self.__size
     @size.setter
     def size(self, value):
+        """ setter of value"""
         if not isinstance(value,int):
             raise TypeError("size must be an integer")
         else:

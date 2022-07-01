@@ -7,7 +7,7 @@ if size < 0 raise value error
 
 
 class Square:
-     """Represents a square
+    """Represents a square
     Attributes:
         __size (int): size of a side of the square
     """
@@ -27,6 +27,7 @@ class Square:
         return self.__size
     @size.setter
     def size(self, value):
+        """ setter of size"""
         if not isinstance(value,int):
             raise TypeError("size must be an integer")
         else:
