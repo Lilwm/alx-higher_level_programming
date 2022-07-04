@@ -76,8 +76,8 @@ class Rectangle:
         """returns a printable representation of the rectangle"""
         string = ""
         if self.width != 0 and self.height != 0:
-            string += "\n".join(str(self.print_symbol) * self.width
-                    for j in range(self.height))
+            string += "\n".join(str(self.print_symbol) * self.__width
+                                for j in range(self.__height))
         return string
 
     def __repr__(self):
