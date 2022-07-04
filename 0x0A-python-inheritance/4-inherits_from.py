@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-""" """
-
+""" checks for a subclass """
 
 def inherits_from(obj, a_class):
     """ returns True if the object is a subclass otherwise False"""
