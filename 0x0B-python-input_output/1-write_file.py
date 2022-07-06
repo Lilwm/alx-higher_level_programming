@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" write to a file"""
 
 def write_file(filename="", text=""):
     """ writes a string to a text file
