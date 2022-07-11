@@ -16,7 +16,7 @@ class Student:
         if attrs is None or type(attrs) != list:
             return self.__dict__
         else:
-            new_dict ={}
+            new_dict = {}
             for element in attrs:
                 if type(element) != str:
                     return self.__dict__

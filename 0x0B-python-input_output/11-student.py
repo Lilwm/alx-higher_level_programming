@@ -23,11 +23,8 @@ class Student:
                 if element in self.__dict__.keys():
                     new_dict[element] = self.__dict__[element]
             return new_dict
-    
+
     def reload_from_json(self, json):
         """replaces all attributes of the student instance"""
         for key in json:
-            try:
-                setattr(self, key, json[key])
-            except:
-                pass
+            setattr(self, key, json[key])

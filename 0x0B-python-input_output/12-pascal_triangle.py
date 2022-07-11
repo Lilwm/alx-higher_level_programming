@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" computes apascal triangle"""
+
 
 def pascal_triangle(n):
     """returns a list of lists of integers 
