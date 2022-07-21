@@ -5,7 +5,7 @@ The 0-add_integer module supplies one function, add_integer(a, b).
 """
 
 
-def add_integer(a, b):
+def add_integer(a, b=98):
     """Return the addition of two numbers."""
     if type(a) is not int and type(a) is not float:
         raise TypeError("a must be an integer")
@@ -15,4 +15,4 @@ def add_integer(a, b):
         a = int(a)
     if type(b) is float:
         b = int(b)
-    return a + b 
+    return a + b
