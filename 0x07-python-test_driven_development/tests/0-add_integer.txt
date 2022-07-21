@@ -1,0 +1,84 @@
+'0-add_integer' module
+=======================
+
+'import the function'
+---------------------
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+check the number of args passed
+
+None passed
+	>>> add_integer()
+	Traceback (most recent call last):
+	...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+pass 3 arguments
+	>>> add_integer(3, 5, 3)
+	Traceback (most recent call last):
+	...
+	TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+Pass 1 args
+	>>> add_integer(5)
+	103
+
+addition of ints
+	>>> add_integer(3, 5)
+	8
+
+add float to a float
+	>>> add_integer(2.4, 3.4)
+	5
+
+add float to an int
+	>>> add_integer(2.4, 3)
+	5
+
+add an int to a float
+	>>> add_integer(3, 4.6)  
+	7
+
+add negative numbers
+	>>> add_integer(2, -4)
+	-2
+
+add strings
+	>>> add_integer('3', 4)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+add strings (b)
+	>>> add_integer(4, 'School')
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
+
+convert float to NaN
+	>>> add_integer(4, float('nan'))
+	Traceback (most recent call last):
+	...
+	ValueError: cannot convert float NaN to integer
+
+Checking for passed inf:
+	>>> add_integer(1, float('inf'))
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer
+
+Checking super long int:
+	 >>> add_integer(999999999999999999999999999999, 1)
+	 1000000000000000000000000000000
+
+Checking non-number with number:
+	 >>> add_integer([1], 2)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: a must be an integer
+
+Checking bool with number:
+	 >>> add_integer(True, 1)
+	 Traceback (most recent call last):
+         ...
+         TypeError: a must be an integer
