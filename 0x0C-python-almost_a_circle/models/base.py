@@ -17,6 +17,7 @@ class Base:
             self.id = self.__nb_objects
         else:
             self.id = id
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """returns the JSON string representation of a list of dictionaries"""
@@ -55,13 +56,13 @@ class Base:
     @classmethod
     def load_from_file(cls):
         filename = cls.__name__ + ".json"
-        l = []
+        elem = []
         try:
             with open(filename, 'r') as f:
-                l = cls.from_json_string(f.read())
+                elem = cls.from_json_string(f.read())
             for i, e in enumerate(l):
-                l[i] = cls.create(**l[i])
-        except:
+                elem[i] = cls.create(**elem[i])
+        except FileNotFoundError:
             pass
         return l
 
@@ -83,7 +84,7 @@ class Base:
     def load_from_file_csv(cls):
         """deserializes a list of Rectangles/Squares in csv"""
         filename = cls.__name__ + ".csv"
-        l = []
+        elem = []
         try:
             with open(filename, 'r') as csvfile:
                 csv_reader = csv.reader(csvfile)
@@ -98,8 +99,8 @@ class Base:
                         dictionary = {"id": int(args[0]), "size": int(args[1]),
                                       "x": int(args[2]), "y": int(args[3])}
                     obj = cls.create(**dictionary)
-                    l.append(obj)
-        except:
+                    elem.append(obj)
+        except FileNotFoundError:
             pass
         return l
 
