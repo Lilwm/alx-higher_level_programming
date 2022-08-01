@@ -17,7 +17,7 @@ class Base:
             self.id = self.__nb_objects
         else:
             self.id = id
-     @staticmethod
+    @staticmethod
     def to_json_string(list_dictionaries):
         """returns the JSON string representation of a list of dictionaries"""
         if list_dictionaries is None:
@@ -42,7 +42,7 @@ class Base:
         with open(filename, 'w') as f:
             f.write(cls.to_json_string(lo))
 
-     @classmethod
+    @classmethod
     def create(cls, **dictionary):
         """returns an instance with all attributes already set"""
         if cls.__name__ is "Rectangle":
