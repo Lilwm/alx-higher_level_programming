@@ -5,6 +5,7 @@ Test for the Rectangle"""
 import io
 import sys
 import unittest
+import json
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -518,6 +519,62 @@ class TestRectangle_stdout(unittest.TestCase):
         with self.assertRaises(TypeError):
             r.display(1)
 
+    def test_save_to_file(self):
+        """test regular use of save_to_file"""
+        r1 = Rectangle(1, 1, 1, 1, 1)
+        r2 = Rectangle(2, 2, 2, 2, 2)
+        l = [r1, r2]
+        Rectangle.save_to_file(l)
+        with open("Rectangle.json", "r") as f:
+            ls = [r1.to_dictionary(), r2.to_dictionary()]
+            self.assertEqual(json.dumps(ls), f.read())
+
+    def test_stf_empty(self):
+        """test save_to_file with empty list"""
+        l = []
+        Rectangle.save_to_file(l)
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual("[]", f.read())
+
+    def test_stf_None(self):
+        """test save_to_file with None"""
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual("[]", f.read())
+
+    def test_create(self):
+        """test normal use of create"""
+        r1 = {"id": 2, "width": 2, "height": 3, "x": 4, "y": 0}
+        r2 = {"id": 9, "width": 5, "height": 6, "x": 7, "y": 8}
+        r1c = Rectangle.create(**r1)
+        r2c = Rectangle.create(**r2)
+        self.assertEqual("[Rectangle] (2) 4/0 - 2/3", str(r1c))
+        self.assertEqual("[Rectangle] (9) 7/8 - 5/6", str(r2c))
+        self.assertIsNot(r1, r1c)
+        self.assertIsNot(r2, r2c)
+        self.assertNotEqual(r1, r1c)
+        self.assertNotEqual(r2, r2c)
+
+
+    def test_load_from_file(self):
+        """test normal use of load_from_file"""
+        r1 = Rectangle(1, 2, 3, 4, 5)
+        r2 = Rectangle(6, 7, 8, 9, 10)
+        li = [r1, r2]
+        Rectangle.save_to_file(li)
+        lo = Rectangle.load_from_file()
+        self.assertTrue(type(lo) is list)
+        self.assertEqual(len(lo), 2)
+        r1c = lo[0]
+        r2c = lo[1]
+        self.assertTrue(type(r1c) is Rectangle)
+        self.assertTrue(type(r2c) is Rectangle)
+        self.assertEqual(str(r1), str(r1c))
+        self.assertEqual(str(r2), str(r2c))
+        self.assertIsNot(r1, r1c)
+        self.assertIsNot(r2, r2c)
+        self.assertNotEqual(r1, r1c)
+        self.assertNotEqual(r2, r2c)
 
 class TestRectangle_update_args(unittest.TestCase):
     """Unittests for testing update args method of the Rectangle class."""
